@@ -6,10 +6,10 @@ public class Health : MonoBehaviour
     private float _max = 100;
     private float _initial = 100;
 
-    public float MaxHealth => _max; 
+    public float MaxHealth => _max;
     public float Current { get; private set; }
 
-    public event Action Died;
+    public event Action HealthChanged;
 
     private void Awake()
     {
@@ -18,13 +18,17 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (damage < 0)
+            return;
+
         Current -= damage;
 
         if (Current < 0)
         {
             Current = 0;
-            Died?.Invoke();
         }
+
+        HealthChanged?.Invoke();
     }
 
     public void Restore(float healthAmount)
@@ -34,5 +38,7 @@ public class Health : MonoBehaviour
 
         if (Current > _max)
             Current = _max;
+
+        HealthChanged?.Invoke();
     }
 }

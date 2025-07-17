@@ -414,6 +414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 318345354}
   - component: {fileID: 318345353}
+  - component: {fileID: 318345355}
   m_Layer: 5
   m_Name: SmoothHealthSlider
   m_TagString: Untagged
@@ -494,6 +495,22 @@ RectTransform:
   m_AnchoredPosition: {x: -92, y: -11}
   m_SizeDelta: {x: 402.8752, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &318345355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318345352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a6225177754884088451ff9d94a652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 0}
+  _healthSlider: {fileID: 0}
+  _smoothHealthSlider: {fileID: 0}
+  _smoothSpeed: 0.5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,6 +1243,7 @@ GameObject:
   - component: {fileID: 1534518845}
   - component: {fileID: 1534518844}
   - component: {fileID: 1534518843}
+  - component: {fileID: 1534518846}
   m_Layer: 5
   m_Name: HealthText
   m_TagString: Untagged
@@ -1351,6 +1369,20 @@ RectTransform:
   m_AnchoredPosition: {x: -267, y: 175}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1534518846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534518842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53869cf83110a7844a694f269a2433ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 2115943269}
+  _healthText: {fileID: 1534518843}
 --- !u!1 &1557292484
 GameObject:
   m_ObjectHideFlags: 0
@@ -1554,6 +1586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1689682480}
   - component: {fileID: 1689682479}
+  - component: {fileID: 1689682481}
   m_Layer: 5
   m_Name: HealthSlider
   m_TagString: Untagged
@@ -1634,6 +1667,22 @@ RectTransform:
   m_AnchoredPosition: {x: -92, y: 83}
   m_SizeDelta: {x: 402.8752, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1689682481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689682478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a6225177754884088451ff9d94a652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 0}
+  _healthSlider: {fileID: 0}
+  _smoothHealthSlider: {fileID: 0}
+  _smoothSpeed: 0.5
 --- !u!1 &1892689828
 GameObject:
   m_ObjectHideFlags: 0
@@ -1936,6 +1985,7 @@ GameObject:
   - component: {fileID: 2115943265}
   - component: {fileID: 2115943270}
   - component: {fileID: 2115943269}
+  - component: {fileID: 2115943271}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2043,6 +2093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aeff5cb2a8ce0439ea6295fa03aaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxHealth: 100
 --- !u!114 &2115943270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2056,15 +2107,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 2115943269}
+  _healthChanger: {fileID: 0}
+  _textHandler: {fileID: 0}
+  _sliderHandler: {fileID: 0}
+--- !u!114 &2115943271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115943264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53869cf83110a7844a694f269a2433ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 2115943269}
   _healthText: {fileID: 1534518843}
-  _damageButton: {fileID: 1572432743}
-  _healButton: {fileID: 772440706}
-  _healthSlider: {fileID: 1689682479}
-  _smoothHealthSlider: {fileID: 318345353}
-  _minHeal: 5
-  _maxHeal: 20
-  _minDamage: 5
-  _maxDamage: 20
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
