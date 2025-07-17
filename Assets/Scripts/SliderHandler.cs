@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ public class SliderHandler : MonoBehaviour
     [SerializeField] private float _smoothSpeed = 0.5f;
 
     private Slider _slider;
+    private Coroutine _coroutine;
     private float _targetValue;
 
     private void Awake()
@@ -21,15 +23,13 @@ public class SliderHandler : MonoBehaviour
         _slider.maxValue = 1f;
     }
 
-    private void Update()
+    public void UpdateHealthSlider(float health, float maxHealth)
     {
+        _targetValue = Mathf.Clamp01(health / maxHealth);
+
         if (_useSmoothSpeed)
         {
-            _slider.value = Mathf.MoveTowards(
-                _slider.value,
-                _targetValue,
-                Time.deltaTime * _smoothSpeed
-            );
+            _coroutine = StartCoroutine(SmoothUpdateValue());
         }
         else
         {
@@ -37,8 +37,17 @@ public class SliderHandler : MonoBehaviour
         }
     }
 
-    public void UpdateHealthSlider(float health, float maxHealth)
+    private IEnumerator SmoothUpdateValue()
     {
-        _targetValue = Mathf.Clamp01(health / maxHealth);
+        while (Mathf.Approximately(_slider.value, _targetValue) == false)
+        {
+            _slider.value = Mathf.MoveTowards(
+                _slider.value,
+                _targetValue,
+                Time.deltaTime * _smoothSpeed
+            );
+
+            yield return null;
+        }
     }
 }

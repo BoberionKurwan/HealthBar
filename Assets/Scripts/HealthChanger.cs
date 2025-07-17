@@ -17,14 +17,14 @@ public class HealthChanger : MonoBehaviour
 
     private void Start()
     {
-        _healButtonHandler.OnButtonClicked += Heal;
-        _damageButtonHandler.OnButtonClicked += Damage;
+        _healButtonHandler.ButtonClicked += Heal;
+        _damageButtonHandler.ButtonClicked += Damage;
     }
 
     private void OnDestroy()
     {
-        _healButtonHandler.OnButtonClicked -= Heal;
-        _damageButtonHandler.OnButtonClicked -= Damage;
+        _healButtonHandler.ButtonClicked -= Heal;
+        _damageButtonHandler.ButtonClicked -= Damage;
     }
 
     private void Heal(int amount)

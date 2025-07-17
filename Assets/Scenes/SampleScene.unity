@@ -507,9 +507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6a6225177754884088451ff9d94a652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 0}
-  _healthSlider: {fileID: 0}
-  _smoothHealthSlider: {fileID: 0}
+  _useSmoothSpeed: 1
   _smoothSpeed: 0.5
 --- !u!1 &519420028
 GameObject:
@@ -744,6 +742,7 @@ GameObject:
   - component: {fileID: 772440708}
   - component: {fileID: 772440707}
   - component: {fileID: 772440706}
+  - component: {fileID: 772440709}
   m_Layer: 5
   m_Name: HealButton
   m_TagString: Untagged
@@ -853,6 +852,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772440704}
   m_CullTransparentMesh: 1
+--- !u!114 &772440709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772440704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092606abf925b0842aec0e4f19f561c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &853641682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,7 +1392,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53869cf83110a7844a694f269a2433ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 2115943269}
   _healthText: {fileID: 1534518843}
 --- !u!1 &1557292484
 GameObject:
@@ -1431,6 +1441,7 @@ GameObject:
   - component: {fileID: 1572432745}
   - component: {fileID: 1572432744}
   - component: {fileID: 1572432743}
+  - component: {fileID: 1572432746}
   m_Layer: 5
   m_Name: DamageButton
   m_TagString: Untagged
@@ -1540,6 +1551,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572432741}
   m_CullTransparentMesh: 1
+--- !u!114 &1572432746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572432741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092606abf925b0842aec0e4f19f561c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1573534550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,10 +1702,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6a6225177754884088451ff9d94a652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 0}
-  _healthSlider: {fileID: 0}
-  _smoothHealthSlider: {fileID: 0}
-  _smoothSpeed: 0.5
+  _useSmoothSpeed: 0
+  _smoothSpeed: 0
 --- !u!1 &1892689828
 GameObject:
   m_ObjectHideFlags: 0
@@ -1986,6 +2007,7 @@ GameObject:
   - component: {fileID: 2115943270}
   - component: {fileID: 2115943269}
   - component: {fileID: 2115943271}
+  - component: {fileID: 2115943272}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2093,7 +2115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aeff5cb2a8ce0439ea6295fa03aaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
 --- !u!114 &2115943270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2107,9 +2128,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 2115943269}
-  _healthChanger: {fileID: 0}
-  _textHandler: {fileID: 0}
-  _sliderHandler: {fileID: 0}
+  _healthChanger: {fileID: 2115943272}
+  _textHandler: {fileID: 1534518846}
+  _sliderHandler: {fileID: 1689682481}
+  _smoothSliderHandler: {fileID: 318345355}
 --- !u!114 &2115943271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2122,8 +2144,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53869cf83110a7844a694f269a2433ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 2115943269}
   _healthText: {fileID: 1534518843}
+--- !u!114 &2115943272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115943264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47214bb1ba5a0f14b9c62d162be390ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healButtonHandler: {fileID: 772440709}
+  _damageButtonHandler: {fileID: 1572432746}
+  _slider: {fileID: 1689682481}
+  _smoothSlider: {fileID: 318345355}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

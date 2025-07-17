@@ -8,7 +8,7 @@ public class ButtonHandler : MonoBehaviour
     private Button _button;
     private int _healthAmount = 25;
 
-    public event Action<int> OnButtonClicked;
+    public event Action<int> ButtonClicked;
 
     private void Awake()
     {
@@ -20,8 +20,13 @@ public class ButtonHandler : MonoBehaviour
         _button.onClick.AddListener(HandleClick);
     }
 
+    private void OnDestroy()
+    {
+       _button.onClick.RemoveListener(HandleClick);
+    }
+
     private void HandleClick()
     {
-        OnButtonClicked?.Invoke(_healthAmount);
+        ButtonClicked?.Invoke(_healthAmount);
     }
 }
